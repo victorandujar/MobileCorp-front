@@ -8,7 +8,7 @@ const GlobalStyles = createGlobalStyle`
 
 body {
   padding: 20px;
-  background-color: #fff;
+  background-color: #f5f5f5;
   font-family: "Roboto";
   min-height: 100vh;
 }

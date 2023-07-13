@@ -12,7 +12,8 @@ const HeaderStyled = styled.header`
   margin: 0;
   z-index: 2;
   width: 100%;
-  background-color: #f5f5f5;
+  background-color: ${(props) =>
+    props.theme.backgroundColors.tertiaryBackGround};
 `;
 
 export default HeaderStyled;
