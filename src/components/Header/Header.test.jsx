@@ -1,3 +1,5 @@
+import { ThemeProvider } from "styled-components";
+import theme from "../../styles/theme";
 import Header from "./Header";
 import { render, screen } from "@testing-library/react";
 
@@ -6,7 +8,11 @@ describe("Given a Header component", () => {
     test("Then it should show a header with the text 'MobileCorp'", () => {
       const headerText = "MobileCorp";
 
-      render(<Header />);
+      render(
+        <ThemeProvider theme={theme}>
+          <Header />
+        </ThemeProvider>,
+      );
 
       const expectedHeader = screen.getByRole("heading", { name: headerText });
 
