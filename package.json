@@ -12,8 +12,10 @@
     "@mui/material": "^5.14.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.4.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-query": "^3.39.3",
     "react-scripts": "5.0.1",
     "styled-components": "^6.0.4",
     "web-vitals": "^2.1.4"
@@ -22,6 +24,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:coverage": "react-scripts test --coverage --watchAll=false",
     "eject": "react-scripts eject",
     "prepare": "husky install",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0"
@@ -47,10 +50,23 @@
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "index.js",
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@testing-library/react": "^14.0.0",
     "husky": "^8.0.0",
     "lint-staged": "^13.2.3",
     "prettier": "^3.0.0"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.js",
+      "src/**/*.jsx",
+      "!src/index.js",
+      "!src/react-app-env.d.ts",
+      "!src/setupTests.js"
+    ],
+    "transformIgnorePatterns": [
+      "node_modules/(?!axios)"
+    ]
   },
   "keywords": [],
   "author": "",
