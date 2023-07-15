@@ -16,7 +16,7 @@ const HomePage = () => {
           Select and buy your new mobile phone with just one click!
         </h2>
       </div>
-      <MobileCardList mobiles={data} />;
+      <MobileCardList mobiles={data} />
     </HomePageStyled>
   );
 };
