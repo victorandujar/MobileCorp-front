@@ -1,11 +1,9 @@
-import Header from "../Header/Header";
-import MobileCardList from "../MobileCardList/MobileCardList";
+import Layout from "../Layout/Layout";
 
 const App = () => {
   return (
     <div className="App">
-      <Header />
-      <MobileCardList />
+      <Layout />
     </div>
   );
 };
