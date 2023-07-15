@@ -1,17 +1,17 @@
-import { ThemeProvider } from "styled-components";
-import theme from "../../styles/theme";
 import Header from "./Header";
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
+import renderWithProviders from "../../utils/testUtils/testUtils";
+import { BrowserRouter } from "react-router-dom";
 
 describe("Given a Header component", () => {
   describe("When it is rendered", () => {
     test("Then it should show a header with the text 'MobileCorp'", () => {
       const headerText = "MobileCorp";
 
-      render(
-        <ThemeProvider theme={theme}>
+      renderWithProviders(
+        <BrowserRouter>
           <Header />
-        </ThemeProvider>,
+        </BrowserRouter>,
       );
 
       const expectedHeader = screen.getByRole("heading", { name: headerText });
