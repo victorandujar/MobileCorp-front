@@ -17,7 +17,7 @@ const MobileCard = ({ mobile }) => {
         <h2 className="info__mobile">
           {mobile.brand} - {mobile.model}
         </h2>
-        <span>{mobile.price}€</span>
+        <span className="info__price">{mobile.price}€</span>
       </div>
     </MobileCardStyled>
   );

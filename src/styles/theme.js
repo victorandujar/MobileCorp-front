@@ -7,9 +7,9 @@ const theme = {
     secondaryColorText: "#fff",
   },
   backgroundColors: {
-    mainBackGround: "#f5f5f5",
+    mainBackGround: "#fff",
     secondaryBackGround: "#000",
-    tertiaryBackGround: "#fff",
+    CardBackGround: "#3f3f3f",
   },
   fonts: {
     primaryFont: "Roboto",

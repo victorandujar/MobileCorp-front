@@ -1,5 +1,7 @@
 import axios from "axios";
 
-const apiClient = axios.create({ baseURL: process.env.REACT_APP_URL_API });
+const apiUrl = "https://itx-frontend-test.onrender.com/api";
+
+const apiClient = axios.create({ baseURL: apiUrl });
 
 export default apiClient;
