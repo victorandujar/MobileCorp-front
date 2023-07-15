@@ -1,17 +1,12 @@
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import MobileCardList from "./MobileCardList";
 import { mobilesMockList } from "../../mocks/mocks";
-import { ThemeProvider } from "styled-components";
-import theme from "../../styles/theme";
+import renderWithProviders from "../../utils/testUtils/testUtils";
 
 describe("Given a MobileCardList component", () => {
   describe("When it receives a list of 2 mobiles", () => {
     test("Then it should show each mobile brand and model", () => {
-      render(
-        <ThemeProvider theme={theme}>
-          <MobileCardList mobiles={mobilesMockList} />
-        </ThemeProvider>,
-      );
+      renderWithProviders(<MobileCardList mobiles={mobilesMockList} />);
 
       mobilesMockList.forEach((mobile) => {
         expect(
@@ -23,11 +18,7 @@ describe("Given a MobileCardList component", () => {
     });
 
     test("Then it should show an image", () => {
-      render(
-        <ThemeProvider theme={theme}>
-          <MobileCardList mobiles={mobilesMockList} />
-        </ThemeProvider>,
-      );
+      renderWithProviders(<MobileCardList mobiles={mobilesMockList} />);
 
       mobilesMockList.forEach((mobile) => {
         expect(
