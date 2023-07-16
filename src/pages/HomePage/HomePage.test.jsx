@@ -1,16 +1,26 @@
 import { BrowserRouter } from "react-router-dom";
-import renderWithProviders from "../../utils/testUtils/testUtils";
+
 import HomePage from "./HomePage";
-import { screen } from "@testing-library/react";
+import { screen, waitFor } from "@testing-library/react";
+import renderWithProviders from "../../utils/testUtils/testUtils";
 
 describe("Given a HomePage page", () => {
   describe("When it is rendered", () => {
-    test("Then it should show a heading with the text 'Welcome to MobileCorp'", () => {
-      const headingText = "Welcome to MobileCorp";
+    test("Then it should show a heading with the text 'Welcome to MobileCorp'", async () => {
+      const headerText = "Welcome to MobileCorp";
 
-      renderWithProviders(<HomePage />, { wrapper: BrowserRouter });
+      let expectedHeader;
 
-      const expectedHeader = screen.getByRole("heading", { name: headingText });
+      renderWithProviders(
+        <BrowserRouter>
+          <HomePage />
+        </BrowserRouter>,
+      );
+
+      await waitFor(
+        () =>
+          (expectedHeader = screen.getByRole("heading", { name: headerText })),
+      );
 
       expect(expectedHeader).toBeInTheDocument();
     });
