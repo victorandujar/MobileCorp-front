@@ -1,7 +1,7 @@
 const theme = {
   colors: {
     mainColorButton: "#fff",
-    secondaryColorButton: "#000",
+    secondaryColorButton: "#3f3f3f",
     cardBackGroundColor: "#fff",
     mainColorText: "#000",
     secondaryColorText: "#fff",
