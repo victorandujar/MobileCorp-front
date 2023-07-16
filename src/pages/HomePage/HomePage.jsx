@@ -6,7 +6,9 @@ import HomePageStyled from "./HomePageStyled";
 const HomePage = () => {
   const { getMobilesData } = useApi();
 
-  const { data } = useQuery("mobiles", getMobilesData);
+  const { data } = useQuery("mobiles", getMobilesData, {
+    cacheTime: 60 * 60 * 1000,
+  });
 
   return (
     <HomePageStyled className="home-page">
