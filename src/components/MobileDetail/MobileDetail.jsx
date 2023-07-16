@@ -1,118 +1,75 @@
+import MobileDetailStyled from "./MobileDetailStyled";
+
 const MobileDetail = ({ mobile }) => {
   return (
-    <div>
-      <h2>
-        {mobile?.brand} {mobile?.model}
-        <span>{mobile?.announced}</span>
-      </h2>
-      <div>
+    <MobileDetailStyled className="detail-mobile">
+      <div className="detail-mobile__left-data">
+        <div className="detail-mobile__header">
+          <h2 className="detail-mobile__title">
+            {mobile?.brand} {mobile?.model}
+          </h2>
+          <span className="detail-mobile__release">
+            Released in {mobile?.announced}
+          </span>
+        </div>
         <img
           src={mobile?.imgUrl}
           alt={`${mobile?.brand} ${mobile?.model} mobile`}
+          className="detail-mobile__media"
         />
-        <div>
-          <span>Specifications:</span>
-          <ul>
-            <li>
-              <span>Dimentions: </span>
-              {mobile?.dimentions}
-            </li>
-            <li>
-              <span>Weight: </span>
-              {mobile?.weight}g
-            </li>
-            <li>
-              <span>OS:</span> {mobile?.os}
-            </li>
-            <li>
-              <span>CPU:</span> {mobile?.cpu}
-            </li>
-            <li>
-              <span>GPU:</span> {mobile?.gpu}
-            </li>
-            <li>
-              <span>Chipset:</span> {mobile?.chipset}
-            </li>
-            <li>
-              <span>Internal memory:</span> {mobile?.interalMemory?.join(" / ")}
-            </li>
-            <li>
-              <span>External memory:</span> {mobile?.externalMemory}
-            </li>
-            <li>
-              <span></span> {mobile?.ram}
-            </li>
-            <li>
-              <span>Sim:</span> {mobile?.sim}
-            </li>
-            <li>
-              <span>GPRS:</span> {mobile?.gprs}
-            </li>
-            <li>
-              <span>Edge:</span> {mobile?.gprs}
-            </li>
-            <li>
-              <span>Network technology:</span> {mobile?.networkTechnology}
-            </li>
-            <li>
-              <span>Network speed:</span> {mobile?.networkSpeed}
-            </li>
-            <li>
-              <span>Display type:</span> {mobile?.displayType}
-            </li>
-            <li>
-              <span>Display resolution:</span> {mobile?.displayResolution}
-            </li>
-            <li>
-              <span>Display Size:</span> {mobile?.displaySize}
-            </li>
-            <li>
-              <span>Main camera:</span> {mobile?.primaryCamera?.join(" + ")}
-            </li>
-            <li>
-              <span>Front camera:</span> {mobile?.secondaryCamera?.join(" + ")}
-            </li>
-            <li>
-              <span>Speaker:</span> {mobile?.speaker}
-            </li>
-            <li>
-              <span>Audio jack:</span> {mobile?.audioJack}
-            </li>
-            <li>
-              <span>W-Lan:</span> {mobile?.wlan?.join(" / ")}
-            </li>
-            <li>
-              <span>Bluetooth:</span> {mobile?.bluetooth?.join(" / ")}
-            </li>
-            <li>
-              {" "}
-              <span>GPS:</span> {mobile?.gps}
-            </li>
-            {!mobile?.nfc ? (
-              <span>NFC: No data</span>
-            ) : (
-              <li>
-                <span>NFC</span>
-                {mobile?.nfc}
-              </li>
-            )}
-            <li>
-              <span>Radio: </span>
-              {mobile?.radio}
-            </li>
-            <li>
-              <span>USB:</span> {mobile?.usb}
-            </li>
-            <li>
-              <span>Sensors:</span> {mobile?.sensors?.join(" / ")}
-            </li>
-            <li>
-              <span>Battery:</span> {mobile?.battery}
-            </li>
-          </ul>
-        </div>
       </div>
-    </div>
+      <div className="detail-mobile__specifications specifications">
+        <span className="specifications__title">Specifications</span>
+        <ul className="specifications__list">
+          <li className="specifications__data">
+            <span className="specifications__reference">Dimentions:</span>
+            {mobile?.dimentions}
+          </li>
+          <li className="specifications__data">
+            <span className="specifications__reference">Weigth:</span>
+            {mobile?.weight}g
+          </li>
+          <li className="specifications__data">
+            <span className="specifications__reference">OS:</span>
+            {mobile?.os}
+          </li>
+          <li className="specifications__data">
+            <span className="specifications__reference">CPU:</span>
+            {mobile?.cpu}
+          </li>
+          <li className="specifications__data">
+            <span className="specifications__reference">Internal memory:</span>
+            {mobile?.internalMemory?.join(" / ")}
+          </li>
+          <li className="specifications__data">
+            <span className="specifications__reference">External memory:</span>
+            {mobile?.externalMemory}
+          </li>
+          <li className="specifications__data">
+            <span className="specifications__reference">RAM:</span>
+            {mobile?.ram}
+          </li>
+          <li className="specifications__data">
+            <span className="specifications__reference">Main camera:</span>
+            {mobile?.primaryCamera?.join(" + ")}
+          </li>
+          <li className="specifications__data">
+            <span className="specifications__reference">Front camera:</span>
+            {mobile?.secondaryCmera?.join(" + ")}
+          </li>
+          <li className="specifications__data">
+            <span className="specifications__reference">
+              Display Resolution:
+            </span>
+            {mobile?.displayResolution}
+          </li>
+          <li className="specifications__data">
+            <span className="specifications__reference">Battery:</span>
+            {mobile?.battery}
+          </li>
+        </ul>
+      </div>
+    </MobileDetailStyled>
   );
 };
 
