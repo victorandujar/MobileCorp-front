@@ -1,3 +1,4 @@
+import Actions from "../Actions/Actions";
 import MobileDetailStyled from "./MobileDetailStyled";
 
 const MobileDetail = ({ mobile }) => {
@@ -16,6 +17,8 @@ const MobileDetail = ({ mobile }) => {
           src={mobile?.imgUrl}
           alt={`${mobile?.brand} ${mobile?.model} mobile`}
           className="detail-mobile__media"
+          width={237}
+          height={314}
         />
       </div>
       <div className="detail-mobile__specifications specifications">
@@ -79,9 +82,14 @@ const MobileDetail = ({ mobile }) => {
           </li>
           <li className="specifications__data">
             <span className="specifications__reference">Battery:</span>
-            {mobile?.battery}
+            {!mobile?.battery ? "No data" : mobile?.battery}
           </li>
         </ul>
+        <Actions
+          mobileId={mobile?.id}
+          mobilePrice={mobile?.price}
+          options={mobile?.options}
+        />
       </div>
     </MobileDetailStyled>
   );

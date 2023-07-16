@@ -10,6 +10,7 @@ const DetailPage = () => {
 
   const { data } = useQuery("mobile", () => getMobileData(productId), {
     enabled: Boolean(productId),
+    cacheTime: 60 * 60 * 1000,
   });
 
   return (
