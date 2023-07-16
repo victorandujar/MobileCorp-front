@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 import ActionsStyled from "./ActionsStyled";
+import useApi from "../../hooks/useApi/useApi";
 
-const Actions = ({ options, mobileId, mobilePrice }) => {
+const Actions = ({ options, mobilePrice, productId }) => {
+  const { addMobileToCart } = useApi();
+
   const [selectedColorCode, setSelectedColorCode] = useState(0);
   const [selectedStorageCode, setSelectedStorageCode] = useState(0);
 
@@ -21,6 +24,14 @@ const Actions = ({ options, mobileId, mobilePrice }) => {
     setSelectedColorCode(options?.colors[0]?.code);
     setSelectedStorageCode(options?.storages[0]?.code);
   }, [options]);
+
+  const handleAddMobileToCart = async () => {
+    await addMobileToCart({
+      id: productId,
+      colorCode: selectedColorCode,
+      storageCode: selectedStorageCode,
+    });
+  };
 
   return (
     <ActionsStyled className="actions">
@@ -68,7 +79,11 @@ const Actions = ({ options, mobileId, mobilePrice }) => {
         ) : (
           <span className="footer__price">Price: {mobilePrice}€</span>
         )}
-        <button className="footer__add" disabled={!mobilePrice}>
+        <button
+          className="footer__add"
+          disabled={!mobilePrice}
+          onClick={handleAddMobileToCart}
+        >
           Add to cart
         </button>
       </div>

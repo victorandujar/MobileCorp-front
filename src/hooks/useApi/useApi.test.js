@@ -1,5 +1,9 @@
 import endpoints from "../../api/endpoints";
-import { mobileMockAcer, mobileMocks } from "../../mocks/mocks";
+import {
+  mobileDetailMock,
+  mobileMockAcer,
+  mobileMocks,
+} from "../../mocks/mocks";
 import useApi from "./useApi";
 import apiClient from "../../api/apiClient";
 
@@ -37,6 +41,29 @@ describe("Given a useApi custom hook", () => {
 
       expect(apiClient.get).toHaveBeenCalledWith(`${products}/${productId}`);
       expect(mobileData).toEqual(mockResponse.data);
+    });
+    test("Then addMobileToCart should add a mobile to the cart", async () => {
+      const mobile = {
+        id: mobileDetailMock.id,
+        colorCode: mobileDetailMock.options.colors.code,
+        storageCode: mobileDetailMock.options.storages.code,
+      };
+
+      const mockResponse = {
+        data: {
+          count: 1,
+        },
+      };
+      apiClient.post = jest.fn().mockResolvedValueOnce(mockResponse);
+
+      const { addMobileToCart } = useApi();
+      const addToCartResponse = await addMobileToCart(mobile);
+
+      expect(apiClient.post).toHaveBeenCalledWith(
+        `${endpoints.addToCart}`,
+        mobile,
+      );
+      expect(addToCartResponse).toEqual(mockResponse.data);
     });
   });
 });
