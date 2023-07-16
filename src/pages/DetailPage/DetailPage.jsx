@@ -3,19 +3,24 @@ import MobileDetail from "../../components/MobileDetail/MobileDetail";
 import useApi from "../../hooks/useApi/useApi";
 import { useQuery } from "react-query";
 import DetailPageStyled from "./DetailPageStyled";
+import Loader from "../../components/Loader/Loader";
 
 const DetailPage = () => {
   const { getMobileData } = useApi();
   const { productId } = useParams();
 
-  const { data } = useQuery("mobile", () => getMobileData(productId), {
-    enabled: Boolean(productId),
-    cacheTime: 60 * 60 * 1000,
-  });
+  const { data, isLoading } = useQuery(
+    "mobile",
+    () => getMobileData(productId),
+    {
+      enabled: Boolean(productId),
+      cacheTime: 60 * 60 * 1000,
+    },
+  );
 
   return (
     <DetailPageStyled>
-      <MobileDetail mobile={data} />
+      {isLoading ? <Loader /> : <MobileDetail mobile={data} />}
     </DetailPageStyled>
   );
 };
