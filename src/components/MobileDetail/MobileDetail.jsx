@@ -86,7 +86,7 @@ const MobileDetail = ({ mobile }) => {
           </li>
         </ul>
         <Actions
-          mobileId={mobile?.id}
+          productId={mobile?.id}
           mobilePrice={mobile?.price}
           options={mobile?.options}
         />
