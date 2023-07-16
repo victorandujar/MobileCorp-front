@@ -23,11 +23,11 @@ const MobileDetail = ({ mobile }) => {
         <ul className="specifications__list">
           <li className="specifications__data">
             <span className="specifications__reference">Dimentions:</span>
-            {mobile?.dimentions}
+            {mobile?.dimentions === "-" ? "No data" : mobile?.dimentions}
           </li>
           <li className="specifications__data">
             <span className="specifications__reference">Weigth:</span>
-            {mobile?.weight}g
+            {!mobile?.weight ? "No data" : `${mobile?.weight}g`}
           </li>
           <li className="specifications__data">
             <span className="specifications__reference">OS:</span>
@@ -49,14 +49,28 @@ const MobileDetail = ({ mobile }) => {
             <span className="specifications__reference">RAM:</span>
             {mobile?.ram}
           </li>
-          <li className="specifications__data">
-            <span className="specifications__reference">Main camera:</span>
-            {mobile?.primaryCamera?.join(" + ")}
-          </li>
-          <li className="specifications__data">
-            <span className="specifications__reference">Front camera:</span>
-            {mobile?.secondaryCmera?.join(" + ")}
-          </li>
+          {!Array.isArray(mobile?.primaryCamera) ? (
+            <li className="specifications__data">
+              <span className="specifications__reference">Main camera:</span>
+              {mobile?.primaryCamera}
+            </li>
+          ) : (
+            <li className="specifications__data">
+              <span className="specifications__reference">Main camera:</span>
+              {mobile?.primaryCamera?.join(" + ")}
+            </li>
+          )}
+          {!Array.isArray(mobile?.secondaryCmera) ? (
+            <li className="specifications__data">
+              <span className="specifications__reference">Front camera:</span>
+              {mobile?.secondaryCmera}
+            </li>
+          ) : (
+            <li className="specifications__data">
+              <span className="specifications__reference">Front camera:</span>
+              {mobile?.secondaryCmera?.join(" + ")}
+            </li>
+          )}
           <li className="specifications__data">
             <span className="specifications__reference">
               Display Resolution:
