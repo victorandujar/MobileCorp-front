@@ -29,7 +29,7 @@ const Actions = ({ options, mobileId, mobilePrice }) => {
         <div className="options__choice">
           {options?.colors?.map(({ name, code }) => (
             <button
-              key={mobileId + Math.random()}
+              key={name}
               onClick={handleColorsClick}
               value={code}
               className={
@@ -48,7 +48,7 @@ const Actions = ({ options, mobileId, mobilePrice }) => {
         <div className="options__choice">
           {options?.storages?.map(({ name, code }) => (
             <button
-              key={mobileId + Math.random()}
+              key={name}
               onClick={handleStorageClick}
               value={code}
               className={
