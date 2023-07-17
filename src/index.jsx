@@ -7,6 +7,7 @@ import { ThemeProvider } from "styled-components";
 import theme from "./styles/theme";
 import router from "./routes/router";
 import { RouterProvider } from "react-router-dom";
+import MobilesContextProvider from "./store/contexts/MobilesContextProvider";
 
 const queryClient = new QueryClient();
 
@@ -16,7 +17,9 @@ root.render(
     <ThemeProvider theme={theme}>
       <QueryClientProvider client={queryClient}>
         <GlobalStyles />
-        <RouterProvider router={router} />
+        <MobilesContextProvider>
+          <RouterProvider router={router} />
+        </MobilesContextProvider>
       </QueryClientProvider>
     </ThemeProvider>
   </React.StrictMode>,
