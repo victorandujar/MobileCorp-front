@@ -14,6 +14,10 @@ const MobileCardStyled = styled.article`
     width: 100%;
   }
 
+  &:hover {
+    opacity: 0.8;
+  }
+
   .mobile-card {
     &__image-container {
       display: flex;

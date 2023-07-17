@@ -10,7 +10,6 @@ body {
   padding: 20px;
   background-color: #f5f5f5;
   font-family: "Roboto";
-  min-height: 100vh;
 }
 
 h1,h2{

@@ -39,6 +39,7 @@ const ActionsStyled = styled.div`
   .footer {
     display: flex;
     justify-content: space-between;
+    align-items: flex-end;
     padding: 20px 0;
 
     &__price {
@@ -50,14 +51,22 @@ const ActionsStyled = styled.div`
       background-color: ${(props) => props.theme.colors.secondaryColorButton};
       color: ${(props) => props.theme.colors.secondaryColorText};
       border-radius: 5px;
-      width: 100px;
-      height: 25px;
+      width: 130px;
+      height: 30px;
 
-      &:disabled {
+      &:active {
         border: 1px solid ${(props) => props.theme.colors.secondaryColorButton};
         border-radius: 5px;
         background-color: ${(props) => props.theme.colors.mainColorButton};
         color: ${(props) => props.theme.colors.mainColorText};
+      }
+
+      &:hover {
+        opacity: 0.8;
+      }
+
+      &:disabled {
+        opacity: 0.6;
       }
     }
   }
