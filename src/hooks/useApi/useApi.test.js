@@ -6,8 +6,14 @@ import {
 } from "../../mocks/mocks";
 import useApi from "./useApi";
 import apiClient from "../../api/apiClient";
+import { renderHook } from "@testing-library/react";
+import MockContextProvider from "../../mocks/Wrapper";
+import { mockDispatch, mockStore } from "../../mocks/mockStore";
 
 jest.mock("../../api/apiClient");
+
+const dispatch = mockDispatch;
+const store = mockStore;
 
 describe("Given a useApi custom hook", () => {
   describe("When it is called", () => {
@@ -21,8 +27,20 @@ describe("Given a useApi custom hook", () => {
         data: mobileMocks,
       };
       apiClient.get = jest.fn().mockResolvedValueOnce(mockResponse);
+      const {
+        result: {
+          current: { getMobilesData },
+        },
+      } = renderHook(() => useApi(), {
+        wrapper: ({ children }) => {
+          return (
+            <MockContextProvider mockStore={store}>
+              {children}
+            </MockContextProvider>
+          );
+        },
+      });
 
-      const { getMobilesData } = useApi();
       const mobilesData = await getMobilesData();
 
       expect(apiClient.get).toHaveBeenCalledWith(`${products}`);
@@ -36,7 +54,19 @@ describe("Given a useApi custom hook", () => {
       };
       apiClient.get = jest.fn().mockResolvedValueOnce(mockResponse);
 
-      const { getMobileData } = useApi();
+      const {
+        result: {
+          current: { getMobileData },
+        },
+      } = renderHook(() => useApi(), {
+        wrapper: ({ children }) => {
+          return (
+            <MockContextProvider mockStore={store}>
+              {children}
+            </MockContextProvider>
+          );
+        },
+      });
       const mobileData = await getMobileData(productId);
 
       expect(apiClient.get).toHaveBeenCalledWith(`${products}/${productId}`);
@@ -56,7 +86,19 @@ describe("Given a useApi custom hook", () => {
       };
       apiClient.post = jest.fn().mockResolvedValueOnce(mockResponse);
 
-      const { addMobileToCart } = useApi();
+      const {
+        result: {
+          current: { addMobileToCart },
+        },
+      } = renderHook(() => useApi(), {
+        wrapper: ({ children }) => {
+          return (
+            <MockContextProvider mockStore={store}>
+              {children}
+            </MockContextProvider>
+          );
+        },
+      });
       const addToCartResponse = await addMobileToCart(mobile);
 
       expect(apiClient.post).toHaveBeenCalledWith(
@@ -64,6 +106,7 @@ describe("Given a useApi custom hook", () => {
         mobile,
       );
       expect(addToCartResponse).toEqual(mockResponse.data);
+      expect(dispatch).toHaveBeenCalled();
     });
   });
 });

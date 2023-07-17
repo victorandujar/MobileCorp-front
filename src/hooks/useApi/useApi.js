@@ -1,8 +1,13 @@
+import { useContext } from "react";
 import apiClient from "../../api/apiClient";
 import endpoints from "../../api/endpoints";
+import MobilesContext from "../../store/contexts/MobilesContext";
+import { addMobileToCartActionCreator } from "../../store/actions/mobilesActionsCreators";
 
 const useApi = () => {
   const { products, addToCart } = endpoints;
+
+  const { dispatch } = useContext(MobilesContext);
 
   const getMobilesData = async () => {
     const { data } = await apiClient.get(`${products}`);
@@ -21,6 +26,8 @@ const useApi = () => {
       colorCode,
       storageCode,
     });
+
+    dispatch(addMobileToCartActionCreator(data));
 
     return data;
   };
