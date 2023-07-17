@@ -1,13 +1,22 @@
 import { useEffect, useState } from "react";
 import ActionsStyled from "./ActionsStyled";
 import useApi from "../../hooks/useApi/useApi";
+import ToastSuccess from "../ToastSuccess/ToastSuccess";
 
 const Actions = ({ options, mobilePrice, productId }) => {
   const { addMobileToCart } = useApi();
 
   const [selectedColorCode, setSelectedColorCode] = useState(0);
   const [selectedStorageCode, setSelectedStorageCode] = useState(0);
+  const [open, setOpen] = useState(false);
 
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpen(false);
+  };
   const handleColorsClick = (event) => {
     event.preventDefault();
 
@@ -31,6 +40,10 @@ const Actions = ({ options, mobilePrice, productId }) => {
       colorCode: selectedColorCode,
       storageCode: selectedStorageCode,
     });
+
+    if (mobile) {
+      setOpen(true);
+    }
 
     const localStorgeValue = localStorage.getItem("count");
 
@@ -91,6 +104,7 @@ const Actions = ({ options, mobilePrice, productId }) => {
           Add to cart
         </button>
       </div>
+      {open && <ToastSuccess open={open} handleClose={handleClose} />}
     </ActionsStyled>
   );
 };

@@ -22,7 +22,7 @@ const Header = () => {
       </div>
       <Badge
         badgeContent={localStorageValue > 0 ? localStorageValue : mobiles.count}
-        color="secondary"
+        color="error"
       >
         <ShoppingCartIcon />
       </Badge>
