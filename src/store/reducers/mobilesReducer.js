@@ -1,12 +1,11 @@
 const mobilesReducer = (state, action) => {
-  switch (action.type) {
-    case "addMobileToCart":
-      return {
-        ...state,
-        count: state.count + 1,
-      };
-    default:
-      return state;
+  if (action.type === "addMobileToCart") {
+    return {
+      ...state,
+      count: state.count + 1,
+    };
+  } else {
+    return state;
   }
 };
 
