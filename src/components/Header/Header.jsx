@@ -13,11 +13,13 @@ const Header = () => {
   const localStorageValue = localStorage.getItem("count");
 
   return (
-    <HeaderStyled>
+    <HeaderStyled className="header">
       <Link to={paths.home}>
-        <h2>MobileCorp</h2>
+        <h2 className="header__title">MobileCorp</h2>
       </Link>
-      <BasicBreadcrumbs />
+      <div className="header__bread-crumbs">
+        <BasicBreadcrumbs />
+      </div>
       <Badge
         badgeContent={localStorageValue > 0 ? localStorageValue : mobiles.count}
         color="secondary"

@@ -5,7 +5,7 @@ const HeaderStyled = styled.header`
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 10px 250px;
+  padding: 15px 250px;
   position: fixed;
   top: 0;
   left: 0;
@@ -20,6 +20,21 @@ const HeaderStyled = styled.header`
 
   @media (max-width: 1414px) {
     padding: 10px 30px;
+  }
+
+  .header {
+    &__title {
+      @media (max-width: 440px) {
+        font-size: 18px;
+      }
+    }
+
+    &__bread-crumbs {
+      @media (max-width: 440px) {
+        display: none;
+        padding: 30px 0;
+      }
+    }
   }
 `;
 
