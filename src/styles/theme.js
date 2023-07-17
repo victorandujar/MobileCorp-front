@@ -2,8 +2,9 @@ const theme = {
   colors: {
     mainColorButton: "#fff",
     secondaryColorButton: "#3f3f3f",
+    tertiaryColorButton: "#b1b1b1",
     cardBackGroundColor: "#fff",
-    mainColorText: "#000",
+    mainColorText: "#3f3f3f",
     secondaryColorText: "#fff",
   },
   backgroundColors: {

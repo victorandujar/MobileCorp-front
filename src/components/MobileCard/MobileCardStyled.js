@@ -10,6 +10,10 @@ const MobileCardStyled = styled.article`
   border-radius: 10px;
   padding: 30px 0;
 
+  @media (max-width: 310px) {
+    width: 100%;
+  }
+
   .mobile-card {
     &__image-container {
       display: flex;
