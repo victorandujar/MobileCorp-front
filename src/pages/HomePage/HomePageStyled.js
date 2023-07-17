@@ -4,13 +4,20 @@ const HomePageStyled = styled.div`
   display: flex;
   flex-direction: column;
   gap: 40px;
-  padding: 70px 0;
+  padding: 70px 220px;
+
+  @media (max-width: 1630px) {
+    padding: 70px 120px;
+  }
+
+  @media (max-width: 1417px) {
+    padding: 70px 0px;
+  }
 
   .header {
-    padding: 0 40px;
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    align-items: flex-end;
+    justify-content: space-between;
 
     &__title {
       font-size: 30px;
@@ -18,6 +25,22 @@ const HomePageStyled = styled.div`
 
     &__text {
       font-size: 18px;
+    }
+
+    &__welcome {
+      @media (max-width: 1150px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+    }
+
+    @media (max-width: 1150px) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
     }
   }
 `;
