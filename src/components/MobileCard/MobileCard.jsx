@@ -2,18 +2,9 @@ import * as React from "react";
 import MobileCardStyled from "./MobileCardStyled";
 import { Link } from "react-router-dom";
 import endpoints from "../../api/endpoints";
+import convertBrandFirstLetterIntoUpperCase from "../../utils/convertBrandFirstLetterToUpperCase/convertBrandFirstLetterIntoUpperCase";
 
 const MobileCard = ({ mobile }) => {
-  const convertBrandFirstLetterIntoUpperCase = (brand) => {
-    if (!brand) {
-      return "";
-    } else {
-      const firstLetterToUpperCase = brand.charAt(0).toUpperCase();
-      const restStringToLowerCase = brand.slice(1).toLowerCase();
-      return firstLetterToUpperCase + restStringToLowerCase;
-    }
-  };
-
   return (
     <Link to={`${endpoints.products}/${mobile.id}`}>
       <MobileCardStyled className="mobile-card">

@@ -1,3 +1,4 @@
+import convertBrandFirstLetterIntoUpperCase from "../../utils/convertBrandFirstLetterToUpperCase/convertBrandFirstLetterIntoUpperCase";
 import Actions from "../Actions/Actions";
 import MobileDetailStyled from "./MobileDetailStyled";
 
@@ -7,7 +8,8 @@ const MobileDetail = ({ mobile }) => {
       <div className="detail-mobile__left-data">
         <div className="detail-mobile__header">
           <h2 className="detail-mobile__title">
-            {mobile?.brand} {mobile?.model}
+            {convertBrandFirstLetterIntoUpperCase(mobile?.brand)}{" "}
+            {mobile?.model}
           </h2>
           <span className="detail-mobile__release">
             Released in {mobile?.announced}
