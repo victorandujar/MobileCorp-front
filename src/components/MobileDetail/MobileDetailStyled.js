@@ -9,7 +9,7 @@ const MobileDetailStyled = styled.div`
     &__left-data {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 20px;
     }
 
     &__title {
@@ -24,7 +24,7 @@ const MobileDetailStyled = styled.div`
   .specifications {
     display: flex;
     flex-direction: column;
-    gap: 45px;
+    gap: 50px;
     padding-top: 5px;
 
     &__title {

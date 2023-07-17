@@ -9,7 +9,7 @@ export const mobileMockAcer = {
 
 export const mobileMockAlcatel = {
   id: "AasKFs5EGbyAEIKkcHQcF",
-  brand: "alcatel",
+  brand: "Alcatel",
   model: "Flash (2017)",
   price: "100",
   imgUrl:
