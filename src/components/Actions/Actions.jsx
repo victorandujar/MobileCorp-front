@@ -26,11 +26,15 @@ const Actions = ({ options, mobilePrice, productId }) => {
   }, [options]);
 
   const handleAddMobileToCart = async () => {
-    await addMobileToCart({
+    const mobile = await addMobileToCart({
       id: productId,
       colorCode: selectedColorCode,
       storageCode: selectedStorageCode,
     });
+
+    const localStorgeValue = localStorage.getItem("count");
+
+    localStorage.setItem("count", +localStorgeValue + +mobile.count);
   };
 
   return (

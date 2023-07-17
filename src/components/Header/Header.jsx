@@ -10,13 +10,18 @@ import MobilesContext from "../../store/contexts/MobilesContext";
 const Header = () => {
   const { mobiles } = useContext(MobilesContext);
 
+  const localStorageValue = localStorage.getItem("count");
+
   return (
     <HeaderStyled>
       <Link to={paths.home}>
         <h2>MobileCorp</h2>
       </Link>
       <BasicBreadcrumbs />
-      <Badge badgeContent={mobiles.count} color="secondary">
+      <Badge
+        badgeContent={localStorageValue > 0 ? localStorageValue : mobiles.count}
+        color="secondary"
+      >
         <ShoppingCartIcon />
       </Badge>
     </HeaderStyled>
