@@ -12,7 +12,7 @@ const HomePage = () => {
   const [searchedMobile, setSearchedMobile] = useState("");
   const [filteredMobiles, setFilteredMobiles] = useState([]);
 
-  const { data, isLoading } = useQuery("mobiles", getMobilesData, {
+  const { data, isLoading, isError } = useQuery("mobiles", getMobilesData, {
     cacheTime: 60 * 60 * 1000,
   });
 
@@ -30,6 +30,14 @@ const HomePage = () => {
       setFilteredMobiles(mobilesFiltered);
     });
   };
+
+  if (isError) {
+    return (
+      <HomePageStyled>
+        <span>Oooops. Something went wrong. Please try again later!</span>
+      </HomePageStyled>
+    );
+  }
 
   return (
     <HomePageStyled className="home-page">

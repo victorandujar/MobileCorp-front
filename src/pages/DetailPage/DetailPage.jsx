@@ -9,7 +9,7 @@ const DetailPage = () => {
   const { getMobileData } = useApi();
   const { productId } = useParams();
 
-  const { data, isLoading } = useQuery(
+  const { data, isLoading, isError } = useQuery(
     "mobile",
     () => getMobileData(productId),
     {
@@ -17,6 +17,14 @@ const DetailPage = () => {
       cacheTime: 60 * 60 * 1000,
     },
   );
+
+  if (isError) {
+    return (
+      <DetailPageStyled>
+        <span>Oooops. Something went wrong. Please try again later!</span>
+      </DetailPageStyled>
+    );
+  }
 
   return (
     <DetailPageStyled>
