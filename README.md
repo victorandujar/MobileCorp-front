@@ -40,10 +40,6 @@ You can run the tests to ensure the application's stability and reliability. Use
 - Execute tests: npm run test
 - Check test coverage: npm run test:coverage
 
-###
-
-![Quality Gate](src\images\quality-gate.png)
-
 ##
 
 Feel free to explore MobileCorp, find your dream mobile phone, and enjoy a hassle-free shopping experience with us! For any issues or suggestions, please raise them in the GitHub repository's issue section. Happy shopping! 📱💻
