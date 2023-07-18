@@ -1,32 +1,36 @@
 import { BrowserRouter } from "react-router-dom";
 import renderWithProviders from "../../utils/testUtils/testUtils";
 import DetailPage from "./DetailPage";
-import { screen } from "@testing-library/react";
+import { screen, waitFor } from "@testing-library/react";
 
 describe("Given a DetailPage page", () => {
   describe("When it is rendered", () => {
-    test("Then it should show an image mobile", () => {
+    test("Then it should show an image mobile", async () => {
+      let expectedList;
+
       renderWithProviders(
         <BrowserRouter>
           <DetailPage />
         </BrowserRouter>,
       );
 
-      const expectedImage = screen.getByRole("img");
-
-      expect(expectedImage).toBeInTheDocument();
-    });
-
-    test("Then it should show a list of specifications", () => {
-      renderWithProviders(
-        <BrowserRouter>
-          <DetailPage />
-        </BrowserRouter>,
-      );
-
-      const expectedList = screen.getByRole("list");
+      await waitFor(() => (expectedList = screen.getByRole("img")));
 
       expect(expectedList).toBeInTheDocument();
     });
+  });
+
+  test("Then it should show a list of specifications", async () => {
+    renderWithProviders(
+      <BrowserRouter>
+        <DetailPage />
+      </BrowserRouter>,
+    );
+
+    let expectedList;
+
+    await waitFor(() => (expectedList = screen.getByRole("list")));
+
+    expect(expectedList).toBeInTheDocument();
   });
 });
