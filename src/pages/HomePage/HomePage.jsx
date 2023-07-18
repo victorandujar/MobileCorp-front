@@ -12,10 +12,14 @@ const HomePage = () => {
   const [searchedMobile, setSearchedMobile] = useState("");
   const [filteredMobiles, setFilteredMobiles] = useState([]);
 
-  const { data, isLoading, isError } = useQuery("mobiles", getMobilesData, {
-    cacheTime: 60 * 60 * 1000,
-    staleTime: 60 * 60 * 1000,
-  });
+  const { data, isLoading, isError, isFetching } = useQuery(
+    "mobiles",
+    getMobilesData,
+    {
+      cacheTime: 60 * 60 * 1000,
+      staleTime: 60 * 60 * 1000,
+    },
+  );
 
   const handleMobileSearch = ({ target: { value } }) => {
     setSearchedMobile(value);
@@ -42,7 +46,7 @@ const HomePage = () => {
 
   return (
     <HomePageStyled className="home-page">
-      {isLoading ? (
+      {isLoading || isFetching ? (
         <Loader />
       ) : (
         <>
