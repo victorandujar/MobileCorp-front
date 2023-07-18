@@ -1,9 +1,11 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import MobileDetail from "../../components/MobileDetail/MobileDetail";
 import useApi from "../../hooks/useApi/useApi";
 import { useQuery } from "react-query";
 import DetailPageStyled from "./DetailPageStyled";
 import Loader from "../../components/Loader/Loader";
+import paths from "../../utils/paths/paths";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 
 const DetailPage = () => {
   const { getMobileData } = useApi();
@@ -27,7 +29,10 @@ const DetailPage = () => {
   }
 
   return (
-    <DetailPageStyled>
+    <DetailPageStyled className="detail-page">
+      <Link to={paths.home}>
+        <ArrowBackIosIcon />
+      </Link>
       {isLoading ? <Loader /> : <MobileDetail mobile={data} />}
     </DetailPageStyled>
   );
