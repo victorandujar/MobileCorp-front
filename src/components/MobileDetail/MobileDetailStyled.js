@@ -20,10 +20,22 @@ const MobileDetailStyled = styled.div`
 
     &__title {
       font-size: 30px;
+      @media (max-width: 400px) {
+        font-size: 20px;
+      }
     }
 
     &__release {
-      font-size: 14px;
+      @media (max-width: 400px) {
+        font-size: 12px;
+      }
+    }
+
+    &__media {
+      @media (max-width: 905px) {
+        width: 200px;
+        height: 250px;
+      }
     }
   }
 

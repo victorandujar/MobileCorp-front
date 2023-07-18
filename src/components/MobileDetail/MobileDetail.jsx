@@ -20,7 +20,7 @@ const MobileDetail = ({ mobile }) => {
           alt={`${mobile?.brand} ${mobile?.model} mobile`}
           className="detail-mobile__media"
           width={237}
-          height={314}
+          height={290}
         />
       </div>
       <div className="detail-mobile__specifications specifications">

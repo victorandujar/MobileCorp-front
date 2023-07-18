@@ -15,11 +15,11 @@ const HeaderStyled = styled.header`
   background-color: ${(props) => props.theme.backgroundColors.mainBackGround};
 
   @media (max-width: 1630px) {
-    padding: 10px 150px;
+    padding: 15px 150px;
   }
 
   @media (max-width: 1414px) {
-    padding: 10px 30px;
+    padding: 15px 30px;
   }
 
   .header {
