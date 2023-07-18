@@ -17,6 +17,7 @@ const Actions = ({ options, mobilePrice, productId }) => {
 
     setOpen(false);
   };
+
   const handleColorsClick = (event) => {
     event.preventDefault();
 
@@ -47,7 +48,7 @@ const Actions = ({ options, mobilePrice, productId }) => {
 
     const localStorgeValue = localStorage.getItem("count");
 
-    localStorage.setItem("count", +localStorgeValue + +mobile.count);
+    localStorage.setItem("count", +localStorgeValue + +mobile?.count);
   };
 
   return (
