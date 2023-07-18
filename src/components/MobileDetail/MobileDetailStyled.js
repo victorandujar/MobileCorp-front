@@ -5,7 +5,7 @@ const MobileDetailStyled = styled.div`
   gap: 80px;
   justify-content: center;
 
-  @media (max-width: 810px) {
+  @media (max-width: 905px) {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -39,7 +39,11 @@ const MobileDetailStyled = styled.div`
 
     &__reference {
       font-weight: bold;
-      @media (max-width: 810px) {
+      @media (max-width: 550px) {
+        font-size: 14px;
+      }
+
+      @media (max-width: 400px) {
         font-size: 12px;
       }
     }
@@ -49,8 +53,12 @@ const MobileDetailStyled = styled.div`
       gap: 7px;
       font-size: 15px;
 
-      @media (max-width: 810px) {
+      @media (max-width: 550px) {
         font-size: 12px;
+      }
+
+      @media (max-width: 400px) {
+        font-size: 11px;
       }
     }
 

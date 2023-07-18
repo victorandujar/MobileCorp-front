@@ -10,7 +10,7 @@ const MobileCardStyled = styled.article`
   border-radius: 10px;
   padding: 30px 0;
 
-  @media (max-width: 310px) {
+  @media (max-width: 597px) {
     width: 100%;
   }
 
