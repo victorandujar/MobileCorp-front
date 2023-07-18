@@ -11,7 +11,7 @@ const DetailPage = () => {
   const { getMobileData } = useApi();
   const { productId } = useParams();
 
-  const { data, isLoading, isError } = useQuery(
+  const { data, isLoading, isError, isFetching } = useQuery(
     "mobile",
     () => getMobileData(productId),
     {
@@ -33,7 +33,7 @@ const DetailPage = () => {
       <Link to={paths.home}>
         <ArrowBackIosIcon />
       </Link>
-      {isLoading ? <Loader /> : <MobileDetail mobile={data} />}
+      {isLoading || isFetching ? <Loader /> : <MobileDetail mobile={data} />}
     </DetailPageStyled>
   );
 };
