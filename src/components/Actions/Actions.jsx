@@ -95,7 +95,7 @@ const Actions = ({ options, mobilePrice, productId }) => {
         {!mobilePrice ? (
           <span className="footer__price">Not available</span>
         ) : (
-          <span className="footer__price">Price: {mobilePrice}€</span>
+          <span className="footer__price">{mobilePrice}€</span>
         )}
         <button
           className="footer__add"

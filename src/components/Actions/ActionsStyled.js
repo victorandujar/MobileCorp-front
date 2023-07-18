@@ -44,6 +44,8 @@ const ActionsStyled = styled.div`
 
     &__price {
       font-size: 20px;
+      font-weight: bold;
+
       @media (max-width: 400px) {
         font-size: 14px;
       }
