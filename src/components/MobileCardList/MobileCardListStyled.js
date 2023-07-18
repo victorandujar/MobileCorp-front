@@ -15,7 +15,7 @@ const MobileCarListStyled = styled.ul`
   }
 
   li {
-    @media (max-width: 310px) {
+    @media (max-width: 597px) {
       width: 100%;
     }
   }
