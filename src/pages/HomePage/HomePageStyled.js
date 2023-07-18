@@ -34,6 +34,12 @@ const HomePageStyled = styled.div`
         align-items: center;
         gap: 10px;
       }
+
+      @media (max-width: 520px) {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
 
     @media (max-width: 1150px) {

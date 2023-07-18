@@ -12,13 +12,13 @@ const SearchBarStyled = styled.form`
       padding: 0 7px;
       border: 1px solid ${(props) => props.theme.colors.secondaryColorButton};
 
-      @media (max-width: 390px) {
+      @media (max-width: 597px) {
         width: 100%;
       }
     }
   }
 
-  @media (max-width: 390px) {
+  @media (max-width: 597px) {
     width: 100%;
   }
 `;
